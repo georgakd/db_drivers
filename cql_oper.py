@@ -49,7 +49,7 @@ class CqlOperation(object):
         if not self.validLoadOpts():
             print 'Unknown load...try again'
             raise SystemExit
-        # self.operCreateKeyspace()  # uncomment if using real Cassandra
+        self.operCreateKeyspace()
         self.operCreateTable()	  # always create one Table
 
         start = time.time()
@@ -143,7 +143,6 @@ class CqlOperation(object):
                 primaryKey = str(i)
                 query = insertQueryCols + primaryKey + insertQueryVals
                 sessionExecuteWrapped = self.sessionExecuteWrapper(self.session.execute, query)
-                if i
                 insertLatency = timeit.timeit(sessionExecuteWrapped, number=1)
                 insertLatencyList.append(insertLatency)
             measurements.plotLatency(len(self.key_list), insertLatencyList, 'Inserts')

@@ -3,7 +3,7 @@ from abc import ABCMeta
 
 
 class Operation:    
-    """Base class for all operations of all interfaces"""
+    """Base class for all LDAP operations"""
     __metaclass__ = ABCMeta
     
     @abc.abstractmethod

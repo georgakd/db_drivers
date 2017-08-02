@@ -8,7 +8,7 @@ def plotLatency(operationCount, latencyList, stringOperation):
        (e.g. a read operation) and the response (e.g. return the selected items).
        Plot time intervals vs count of operations"""
     arrayLatency = np.array(latencyList)
-    arrayLatency = arrayLatency * 1000.0  # transform to ms
+    arrayLatency *= 1000.0  # transform to ms
     arrayOperCount = np.arange(operationCount)
     y_mean = [np.mean(arrayLatency) for i in arrayOperCount]
 
