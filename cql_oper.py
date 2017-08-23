@@ -72,6 +72,7 @@ class CqlOperation(object):
             print ('No load used')
         end = time.time()
         print('Operations took %r sec' % (end - start))
+        measurements.calcThroughput(len(self.key_list), (end - start))
                 
     def operCreateKeyspace(self):
         try:
