@@ -79,6 +79,7 @@ class LdapOperation(Operation):
             print ('No load used')
         end = time.time()
         print('Operations took %r sec' % (end - start))
+        measurements.calcThroughput(len(self.key_list), (end - start))
     
     def worker_add(self, dn, ldif):
         print "worker_add"
