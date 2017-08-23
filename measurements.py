@@ -24,7 +24,10 @@ def plotLatency(operationCount, latencyList, stringOperation):
     plt.close(fig)
 
 
-def plotThroughput(operationCount):
+def calcThroughput(operationCount, timediff):
     """Throughput is measured in database operations (read,update,delete etc...) per second.
-       Plot operations per second"""
+       In order to be more accurate do not invoke the measurements.plotLatency function
+       when you calculate throughput, because the plotting slows down the calculations. """
+
+    print("Throughput: ", int(operationCount / timediff), "requests/second")
 
